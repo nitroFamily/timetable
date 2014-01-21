@@ -1,5 +1,8 @@
 Timetable::Application.routes.draw do
+  get "groups/new"
+
   root  'static_pages#home'
+  match '/signup',  to: 'groups#new',           via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
