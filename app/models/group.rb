@@ -1,5 +1,4 @@
 class Group < ActiveRecord::Base
-	has_secure_password
 	before_save { self.email = email.downcase }
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -9,4 +8,5 @@ class Group < ActiveRecord::Base
 										length: {minimum: 6, maximum: 30}, 
 										format: {with: VALID_EMAIL_REGEX}
 	validates :password, length: {minimum: 6, maximum: 50}
+	has_secure_password
 end
