@@ -1,1 +1,10 @@
-<%= @group.name %>, <%= @group.email %>
+<% provide(:title, @group.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @group.name %>
+      </h1>
+    </section>
+  </aside>
+</div>

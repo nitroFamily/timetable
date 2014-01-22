@@ -1,6 +1,4 @@
 Timetable::Application.routes.draw do
-  get "groups/new"
-
   resources :groups
 
   root  'static_pages#home'
