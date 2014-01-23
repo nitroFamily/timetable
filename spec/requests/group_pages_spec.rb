@@ -7,7 +7,7 @@ describe "Group pages" do
 	describe "Signup page" do
 		before {visit signup_path}
 
-		let(:submit) {"Create my account"}
+		let(:submit) {"Создать"}
 
 		describe "with invalid information" do
 			it "should not create a group" do
@@ -17,10 +17,10 @@ describe "Group pages" do
 
 		describe "with valid information" do
 			before do
-				fill_in "Name",         with: "Example"
+				fill_in "Название группы",         with: "Example"
         fill_in "Email",        with: "user@example.com"
-        fill_in "Password",     with: "foobar"
-        fill_in "Confirmation", with: "foobar"
+        fill_in "Пароль",     with: "foobar"
+        fill_in "И снова пароль", with: "foobar"
 			end
 
 			it "should create group" do

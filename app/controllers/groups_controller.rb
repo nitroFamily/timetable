@@ -17,9 +17,7 @@ class GroupsController < ApplicationController
   	@group = Group.find(params[:id])
   end
 
-
   private
-
   def group_params
   	params.require(:group).permit(:name, :email, :password, :password_confirmation)
   end
