@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 		group = Group.find_by(email: params[:session][:email].downcase)
 		if group == group.authenticate(params[:session][:password])
 			sign_in group
-      redirect_to group
+			redirect_back_or group
 		else
 			flash.now[:error] = "Неверный email/пароль"
       render 'new'

@@ -1,0 +1,6 @@
+<li>
+  <%= link_to group.name, group %>
+  <% if current_group.admin? && !current_group?(group) %>
+  	| <%= link_to "Удалить", group, method: :delete, data: {confirm: "О нет господи, что ты делаешь?"} %>
+  	<% end %>
+</li>

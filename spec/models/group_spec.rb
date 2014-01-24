@@ -15,7 +15,20 @@ describe "Group" do
 	it {should respond_to(:password_confirmation)}
 	it {should respond_to(:remember_token)}
   it {should respond_to(:authenticate)}
-	it {should be_valid}
+  it {should respond_to(:admin)}
+
+  it {should be_valid}
+  it {should_not be_admin}	
+
+
+  describe "with admin attribute set to 'true'" do
+    before do
+      @group.save!
+      @group.toggle!(:admin)
+    end
+
+    it {should be_admin}
+  end
 
 	describe "When name is not present" do
 		before {@group.name = " "}
@@ -28,12 +41,12 @@ describe "Group" do
 	end
 
 	describe "When name is too long" do
-		before {@group.name = "a" * 50}
+		before {@group.name = "a" * 55}
 		it {should_not be_valid}
 	end
 
 	describe "When email is too long" do
-		before {@group.email = "a" * 50}
+		before {@group.email = "a" * 55}
 		it {should_not be_valid}
 	end
 

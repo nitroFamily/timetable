@@ -1,4 +1,12 @@
 class GroupsController < ApplicationController
+  before_action :signed_in_group, only: [:edit, :update, :destroy]
+  before_action :correct_group,   only: [:edit, :update]
+  before_action :admin_group,     only: :destroy
+
+  def index
+    @group = Group.paginate(page: params[:page])
+  end
+
   def new
   	@group = Group.new
   end
@@ -16,6 +24,42 @@ class GroupsController < ApplicationController
 
   def show
   	@group = Group.find(params[:id])
+  end
+
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    if @group.update_attributes(group_params)
+      flash[:success] = "Профиль обновлен"
+      redirect_to @group
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Group.find(params[:id]).destroy
+    flash[:success] = "Группа удалена"
+    redirect_to groups_url
+  end
+
+  def signed_in_group
+    unless signed_in?
+      store_location
+      redirect_to signin_url, notice: "Пожалуйста войдите" 
+    end
+  end
+
+  def correct_group
+    @group = Group.find(params[:id])
+    redirect_to(root_url) unless current_group?(@group)
+  end
+
+  def admin_group
+    redirect_to(root_url) unless current_group.admin?
   end
 
   private
