@@ -1,9 +1,9 @@
 module SessionsHelper
 	def sign_in(group)
 		remember_token = Group.new_remember_token
-		cookies.permanent[:remember_token] = remember_token
-		group.update_attribute(:remember_token, Group.encrypt(remember_token))
-		self.current_group = group
+    cookies.permanent[:remember_token] = remember_token
+    group.update_attribute(:remember_token, Group.encrypt(remember_token))
+    self.current_group = group
 	end
 
 	def current_group=(group)
@@ -17,5 +17,11 @@ module SessionsHelper
 
 	def signed_in?
 		!current_group.nil?
+	end
+
+	def sign_out
+		current_group.update_attribute(:remember_token, Group.encrypt(Group.new_remember_token))
+		cookies.delete(:remember_token)
+		self.current_group = nil
 	end
 end

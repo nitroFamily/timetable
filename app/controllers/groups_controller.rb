@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
   def create
   	@group = Group.new(group_params)
   	if @group.save
+      sign_in @group
   		flash[:success] = "Аккаунт вашей группы успешно создан"
   		redirect_to @group
   	else
