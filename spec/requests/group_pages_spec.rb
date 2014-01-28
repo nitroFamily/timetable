@@ -123,5 +123,34 @@ describe "Group pages" do
         it {should_not have_link('delete', href: group_path(admin))}
       end
     end
+
+    describe "profile page" do
+      let(:group) { FactoryGirl.create(:group) }
+      let!(:l1) { FactoryGirl.create(:lesson, group: group, name: "Тест",
+                                                            form: 1,
+                                                            number: 3,
+                                                            classroom: "531/2",
+                                                            day: 4,
+                                                            start_week: 1,
+                                                            end_week: 18 )}
+      let!(:l2) { FactoryGirl.create(:lesson, group: group, name: "Тест",
+                                                            form: 1,
+                                                            number: 3,
+                                                            classroom: "531/2",
+                                                            day: 4,
+                                                            start_week: 1,
+                                                            end_week: 18 )}
+
+      before { visit group_path(group) }
+
+      it { should have_content(group.name) }
+      it { should have_title(group.name) }
+
+      describe "lessons" do
+        it { should have_content(l1.name) }
+        it { should have_content(l2.name) }
+        it { should have_content(group.lessons.count) }
+      end
+    end
   end
 end

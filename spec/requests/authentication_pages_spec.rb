@@ -78,6 +78,19 @@ describe "Authentication" do
 	          before { patch group_path(group) }
 	          specify { expect(response).to redirect_to(signin_path) }
 	        end
+
+	        describe "in the Lessons controller" do
+
+		        describe "submitting to the create action" do
+		          before { post lessons_path }
+		          specify { expect(response).to redirect_to(signin_path) }
+		        end
+
+		        describe "submitting to the destroy action" do
+		          before { delete lesson_path(FactoryGirl.create(:lesson)) }
+		          specify { expect(response).to redirect_to(signin_path) }
+		        end
+		      end
 	      end
 	    end
 

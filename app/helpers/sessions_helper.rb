@@ -23,6 +23,13 @@ module SessionsHelper
 		!current_group.nil?
 	end
 
+	def signed_in_group
+    unless signed_in?
+      store_location
+      redirect_to signin_url, notice: "Пожалуйста войдите" 
+    end
+  end
+
 	def sign_out
 		current_group.update_attribute(:remember_token, Group.encrypt(Group.new_remember_token))
 		cookies.delete(:remember_token)

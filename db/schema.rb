@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140124181038) do
+ActiveRecord::Schema.define(version: 20140126183519) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -25,5 +25,18 @@ ActiveRecord::Schema.define(version: 20140124181038) do
 
   add_index "groups", ["email"], name: "index_groups_on_email", unique: true
   add_index "groups", ["remember_token"], name: "index_groups_on_remember_token"
+
+  create_table "lessons", force: true do |t|
+    t.string   "name"
+    t.integer  "form"
+    t.integer  "number"
+    t.string   "classroom"
+    t.integer  "day"
+    t.integer  "start_week"
+    t.integer  "end_week"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

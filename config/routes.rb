@@ -1,6 +1,7 @@
 Timetable::Application.routes.draw do
   resources :groups
   resources :sessions, only: [:new, :create, :destroy]
+  resources :lessons, only: [:new, :create, :edit, :update, :destroy]
 
   root  'static_pages#home'
   

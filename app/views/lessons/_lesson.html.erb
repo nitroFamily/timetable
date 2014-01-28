@@ -1,0 +1,10 @@
+<% @lessons.each do |lessons| %>      
+
+  <div class="span2">
+    <% lessons.each do |lesson| %>
+      <div><%= lesson.name %></div>
+      <div><%= lesson.day %></div>
+    <% end %>  
+  </div>
+
+<% end %>  

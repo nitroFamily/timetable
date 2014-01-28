@@ -24,6 +24,10 @@ class GroupsController < ApplicationController
 
   def show
   	@group = Group.find(params[:id])
+    @lessons = []
+    (0..5).each do |i|
+      @lessons[i] = @group.lessons.where("day = #{i + 1}")
+    end
   end
 
   def edit
@@ -44,13 +48,6 @@ class GroupsController < ApplicationController
     Group.find(params[:id]).destroy
     flash[:success] = "Группа удалена"
     redirect_to groups_url
-  end
-
-  def signed_in_group
-    unless signed_in?
-      store_location
-      redirect_to signin_url, notice: "Пожалуйста войдите" 
-    end
   end
 
   def correct_group

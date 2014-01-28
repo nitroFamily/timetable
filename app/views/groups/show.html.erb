@@ -1,10 +1,21 @@
 <% provide(:title, @group.name) %>
 <div class="row">
-  <aside class="span4">
+  <div class="span12">
     <section>
       <h1>
         <%= @group.name %>
       </h1>
     </section>
-  </aside>
+  </div>
 </div>
+
+<div class="row">
+
+  <% if @group.lessons.any? %>
+    <%= render "lessons/lesson" %>
+  <% end %>
+
+</div>
+<% if signed_in? && current_group?(@group) %>
+  <%= link_to "Создать", new_lesson_path %>
+<% end %>

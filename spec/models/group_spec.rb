@@ -16,6 +16,7 @@ describe "Group" do
 	it {should respond_to(:remember_token)}
   it {should respond_to(:authenticate)}
   it {should respond_to(:admin)}
+  it {should respond_to(:lessons)}
 
   it {should be_valid}
   it {should_not be_admin}	
@@ -130,5 +131,26 @@ describe "Group" do
 	describe "remember token" do
     before {@group.save}
     its(:remember_token) {should_not be_blank}
+  end
+
+  describe "lesson destroy" do
+
+    before {@group.save}
+    let!(:lesson1) do
+      FactoryGirl.create(:lesson, group: @group, created_at: 1.day.ago)
+    end
+    let!(:lesson2) do
+      FactoryGirl.create(:lesson, group: @group, created_at: 1.hour.ago)
+    end
+
+    it "should destroy associated lesson" do
+      lesson = @group.lessons.to_a
+      @group.destroy
+      expect(lesson).not_to be_empty
+
+      lesson.each do |lesson|
+        expect(Lesson.where(id: lesson.id)).to be_empty
+      end
+    end
   end
 end
