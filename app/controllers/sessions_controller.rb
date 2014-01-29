@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
 	def create
 		group = Group.find_by(email: params[:session][:email].downcase)
-		if group == group.authenticate(params[:session][:password])
+		if group && group.authenticate(params[:session][:password])
 			sign_in group
 			redirect_back_or group
 		else

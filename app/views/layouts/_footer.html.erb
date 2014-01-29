@@ -1,12 +1,9 @@
 <footer class="footer">
-  <small>
-    <a href="#">GitHub</a>
-  </small>
-  <nav>
-    <ul>
-    	<li><%= link_to "Помощь", help_path %></li>
-      <li><%= link_to "О нас", about_path %></li>
-      <li><%= link_to "Контакты", contact_path %></li>
-    </ul>
-  </nav>
+  <div class="row">
+    <nav class="breadcrumbs">
+      <%= link_to "Как создать расписание?", help_path %>
+      <%= link_to "Контакты", contact_path %>
+    </nav>
+  </div>
 </footer>
+

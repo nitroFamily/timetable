@@ -28,7 +28,7 @@
 
       <div>
       	<% if signed_in? && current_group?(@group) %>
-	      	<%= link_to "Ред-ть", edit_lesson_path %>
+	      	<%= link_to "Ред-ть", edit_lesson_path(lesson) %>
 	      	<%= link_to "Удалить", lesson, method: :delete, data: {confirm: "О нет господи, что ты 	делаешь?"} %>
 	      <% end %>
       </div>

@@ -1,18 +1,16 @@
 <% provide(:title, @group.name) %>
 <div class="row">
-  <div class="span12">
-    <section>
-      <h1>
-        <%= @group.name %>
-      </h1>
-      <h5 class="center"> 
-        <% if @week.nil? %>
-          <%= what_week? %>
-        <% else %>
-          <%= @week %>
-        <% end %>
-      - Неделя</h5>
-    </section>
+  <div class="small-12 columns text-center">
+    <h1>
+      <%= @group.name %>
+    </h1>
+    <h5 class="center"> 
+      <% if @week.nil? %>
+        <%= what_week? %>
+      <% else %>
+        <%= @week %>
+      <% end %>
+    - Неделя</h5>
   </div>
 </div>
 
@@ -36,6 +34,11 @@
   </div>
 
 <% end %>
-<% if signed_in? && current_group?(@group) %>
-  <%= link_to "Создать", new_lesson_path %>
-<% end %>
+
+<div class="row">
+  <div class="small-12 columns text-center">
+    <% if signed_in? && current_group?(@group) %>
+      <%= link_to "Добавить занятие", new_lesson_path, class: "button"%>
+    <% end %>
+  </div>
+</div>

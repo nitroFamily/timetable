@@ -1,30 +1,30 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "Timetable", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Главная", root_path %></li>
-          <li><%= link_to "Группы", groups_path %></li>
-          <% if signed_in? %>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Аккаунт <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Профиль", current_group %></li>
-                <li><%= link_to "Настройки", edit_group_path(current_group) %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Выйти", signout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "Войти", signin_path %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
+<div class="contain-to-grid">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#">Timetable</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="right">
+        <li class="active"><%= link_to "Главная", root_path %></li>
+        <li class="active"><%= link_to "Группы", groups_path %></li>
+        <% if signed_in? %>
+          <li class="has-dropdown">
+            <a href="#"><%= current_group.name %></a>
+            <ul class="dropdown">
+              <li><%= link_to "Профиль", current_group %></li>
+              <li><%= link_to "Настройки", edit_group_path(current_group) %></li>
+              <li class="divider"></li>
+              <li class="has-form"><%= link_to "Выйти", signout_path, method: "delete", class: "button" %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="has-form"><%= link_to "Войти", signin_path, class: "button" %></li>
+        <% end %>
+      </ul>
+    </section>
+  </nav>
+</div>

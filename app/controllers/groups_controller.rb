@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   before_action :admin_group,     only: :destroy
 
   def index
-    @group = Group.paginate(page: params[:page])
+    @group = Group.all
   end
 
   def new
