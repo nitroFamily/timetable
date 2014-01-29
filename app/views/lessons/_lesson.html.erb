@@ -1,9 +1,37 @@
 <% @lessons.each do |lessons| %>      
 
-  <div class="span2">
+  <div class="span2 center">
     <% lessons.each do |lesson| %>
+
+    	<div>
+    		<%case lesson.number 
+    				 when 1 %> 1-Пара: 9:00 - 10:35
+    			<% when 2 %> 2-Пара: 10:45 - 12:20
+    			<% when 3 %> 3-Пара: 13:00 - 14:35
+    			<% when 4 %> 4-Пара: 14:45 - 16:20
+    			<% when 5 %> 5-Пара: 16:30 - 18:05
+    		<% end %>
+    	</div>
+
       <div><%= lesson.name %></div>
-      <div><%= lesson.day %></div>
+
+      <div>
+      	<%case lesson.form 
+    				 when 1 %>Лекция
+    			<% when 2 %>Практика
+    			<% when 3 %>Лабораторная
+    		<% end %>
+      </div>
+
+      <div><%= lesson.classroom %></div>
+      <%= lesson.periodicity %>
+
+      <div>
+      	<% if signed_in? && current_group?(@group) %>
+	      	<%= link_to "Ред-ть", edit_lesson_path %>
+	      	<%= link_to "Удалить", lesson, method: :delete, data: {confirm: "О нет господи, что ты 	делаешь?"} %>
+	      <% end %>
+      </div>
     <% end %>  
   </div>
 

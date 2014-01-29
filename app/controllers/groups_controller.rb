@@ -24,10 +24,8 @@ class GroupsController < ApplicationController
 
   def show
   	@group = Group.find(params[:id])
-    @lessons = []
-    (0..5).each do |i|
-      @lessons[i] = @group.lessons.where("day = #{i + 1}")
-    end
+    @week = params[:week]
+    @lessons = get_lessons(@week)
   end
 
   def edit

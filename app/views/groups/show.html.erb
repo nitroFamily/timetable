@@ -5,17 +5,37 @@
       <h1>
         <%= @group.name %>
       </h1>
+      <h5 class="center"> 
+        <% if @week.nil? %>
+          <%= what_week? %>
+        <% else %>
+          <%= @week %>
+        <% end %>
+      - Неделя</h5>
     </section>
   </div>
 </div>
 
-<div class="row">
+<% if @group.lessons.any? %>
 
-  <% if @group.lessons.any? %>
+  <% 18.times do |i| %>
+    <%= link_to "#{i + 1}", group_path(id: @group.id, week: i + 1) %>
+  <% end %>  
+
+  <div class="row">
+    <div class="span2"><h4 class="center">Понедельник</h4></div>
+    <div class="span2"><h4 class="center">Вторник</h4></div>
+    <div class="span2"><h4 class="center">Среда</h4></div>
+    <div class="span2"><h4 class="center">Четверг</h4></div>
+    <div class="span2"><h4 class="center">Пятница</h4></div>
+    <div class="span2"><h4 class="center">Суббота</h4></div>
+  </div>
+
+  <div class="row">
     <%= render "lessons/lesson" %>
-  <% end %>
+  </div>
 
-</div>
+<% end %>
 <% if signed_in? && current_group?(@group) %>
   <%= link_to "Создать", new_lesson_path %>
 <% end %>

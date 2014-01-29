@@ -31,4 +31,17 @@ namespace :db do
                                                 end_week: 18) }
     end
   end
+
+  task add_lessons: :environment do
+    group = Group.first
+    50.times do |i|
+      group.lessons.create!(name: "test#{i}", 
+                            form: "#{i%3 + 1}",
+                            number: "#{i%5 + 1}",
+                            classroom: "531/2",
+                            day: "#{i%6+1}",
+                            start_week: 1,
+                            end_week: 18) 
+    end
+  end
 end

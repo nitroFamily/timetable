@@ -43,6 +43,7 @@ class LessonsController < ApplicationController
       															 :classroom,
       															 :day,
       															 :start_week,
-      															 :end_week)
+      															 :end_week,
+      															 :periodicity)
     end
 end

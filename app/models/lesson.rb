@@ -20,4 +20,8 @@ class Lesson < ActiveRecord::Base
   validates :end_week, presence: true, numericality: { only_integer: true, 
   																								 greater_than_or_equal_to: 1,
   																								 less_than_or_equal_to: 18 }
+                                                   
+  validates :periodicity, presence: true, numericality: { only_integer: true, 
+                                                          greater_than_or_equal_to: 1,
+                                                          less_than_or_equal_to: 3 }                                           
 end
