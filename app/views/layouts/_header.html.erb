@@ -2,14 +2,16 @@
   <nav class="top-bar" data-topbar>
     <ul class="title-area">
       <li class="name">
-        <h1><a href="#">Timetable</a></h1>
+        <h1>
+          <%= link_to "Timetable", root_path %>
+        </h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
     </ul>
 
     <section class="top-bar-section">
       <ul class="right">
-        <li class="active"><%= link_to "Главная", root_path %></li>
+        <li class="active"></li>
         <li class="active"><%= link_to "Группы", groups_path %></li>
         <% if signed_in? %>
           <li class="has-dropdown">
