@@ -8,7 +8,7 @@ class LessonsController < ApplicationController
   def create
   	@lesson = current_group.lessons.build(lesson_params)
   	if @lesson.save
-  		flash[:success] = "Создан"
+  		flash[:success] = "Занятие создано"
   		redirect_to group_path(current_group)
   	else
   		render 'new'
@@ -22,7 +22,7 @@ class LessonsController < ApplicationController
   def update
   	@lesson = current_group.lessons.find(params[:id])
   	if @lesson.update_attributes(lesson_params)
-  		flash[:success] = "Обнавлен"
+  		flash[:success] = "Занятие обновлено"
   		redirect_to group_path(current_group)
   	else
   		render 'edit'
@@ -31,7 +31,7 @@ class LessonsController < ApplicationController
 
   def destroy
   	current_group.lessons.find(params[:id]).destroy
-    flash[:success] = "удалена"
+    flash[:success] = "Занятие удалено"
     redirect_to group_path(current_group)
   end
 

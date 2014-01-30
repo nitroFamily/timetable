@@ -1,6 +1,6 @@
 <% if object.errors.any? %>
   <div id="error_explanation">
-    <div data-alert class="alert-box warning round">
+    <div data-alert class="alert-box warning">
       Форма содержит  <%= pluralize(object.errors.count, "error") %>.
     </div>
     <ul>

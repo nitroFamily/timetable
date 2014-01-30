@@ -15,7 +15,7 @@
     <%= render "layouts/header" %>
     <div class="row">
         <% flash.each do |key, value| %>
-          <div data-alert class="alert-box alert-<%= key %>">
+          <div data-alert class="alert-box <%= key %>">
             <%= value %>
             <a href="#" class="close">&times;</a>
           </div>

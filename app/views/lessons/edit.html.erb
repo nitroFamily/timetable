@@ -1,3 +1,15 @@
-<% provide(:title, 'Создать') %>
+<% provide(:title, 'Редактирование') %>
+<div class="row text-center">
+  <h1>Редактирование</h1>
+</div>
 
-<%= render 'shared/lesson_form' %>
+<div class="row">
+  <div class="small-10 small-centered medium-4 columns text-center">
+		<%= form_for(@lesson) do |f| %>
+
+			<%= render 'shared/lesson_form', f:f %>
+
+			<%= f.submit "Обновить", class: "button" %>
+		<% end %>
+	</div>
+</div>

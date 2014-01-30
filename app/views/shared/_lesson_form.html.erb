@@ -1,42 +1,41 @@
-<%= form_for(@lesson) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<%= render 'shared/error_messages', object: f.object %>
 
-  		<%= f.label :name, "Название предмета"%>
-      <%= f.text_field :name %>
 
-      <%= f.label :form, "Тип"%>
-      <%= f.select(:form, options_for_select([['Лекция', 1], 
-                                              ['Практика', 2], 
-                                              ['Лабораторная', 3]])) %>
+<%= f.label :name, "Название предмета"%>
+<%= f.text_field :name, required: true, placeholder: "Например: Матан, Физ-ра и т.д." %>
 
-      <%= f.label :number, "Пара"%>
-      <%= f.select(:number, options_for_select([['1-Пара: 9:00 - 10:35', 1], 
-                                                ['2-Пара: 10:45 - 12:20', 2],
-                                                ['3-Пара: 13:00 - 14:35', 3], 
-                                                ['4-Пара: 14:45 - 16:20', 4], 
-                                                ['5-Пара: 16:30 - 18:05', 5]])) %>
- 
-      <%= f.label :classroom, "Аудитория"%>
-      <%= f.text_field :classroom %>
+<%= f.label :form, "Тип"%>
+<%= f.select(:form, options_for_select([['Лекция', 1], 
+                                        ['Практика', 2], 
+                                        ['Лабораторная', 3]]), required: true) %>
 
-      <%= f.label :day, "День"%>
-      <%= f.select(:day, options_for_select([['Понедельник', 1], 
-                                             ['Вторник', 2],
-                                             ['Среда', 3], 
-                                             ['Четверг', 4], 
-                                             ['Пятница', 5],
-                                             ['Суббота', 6]])) %>
+<%= f.label :number, "Пара"%>
+<%= f.select(:number, options_for_select([['1-Пара: 9:00 - 10:35', 1], 
+                                          ['2-Пара: 10:45 - 12:20', 2],
+                                          ['3-Пара: 13:00 - 14:35', 3], 
+                                          ['4-Пара: 14:45 - 16:20', 4], 
+                                          ['5-Пара: 16:30 - 18:05', 5]]), required: true) %>
 
-      <%= f.label :periodicity, "Периодичность"%>
-      <%= f.select(:periodicity, options_for_select([['Четная неделя', 1], 
-                                                     ['Нечетная неделя', 2],
-                                                     ['Еженедельно', 3]])) %>
+<%= f.label :classroom, "Аудитория"%>
+<%= f.text_field :classroom, required: true, placeholder: "Пример: 129/1 (1-корпус), 538/2 (2-корпус)" %>
 
-      <%= f.label :start_week, "Начальная неделя"%>
-      <%= f.number_field :start_week, min: 1, max: 18%>
+<%= f.label :day, "День"%>
+<%= f.select(:day, options_for_select([['Понедельник', 1], 
+                                       ['Вторник', 2],
+                                       ['Среда', 3], 
+                                       ['Четверг', 4], 
+                                       ['Пятница', 5],
+                                       ['Суббота', 6]]), required: true) %>
 
-      <%= f.label :end_week, "Конечная неделя"%>
-      <%= f.number_field :end_week, min: 1, max: 18%>
+<%= f.label :periodicity, "Периодичность"%>
+<%= f.select(:periodicity, options_for_select([['Четная неделя', 1], 
+                                               ['Нечетная неделя', 2],
+                                               ['Еженедельно', 3]]), required: true) %>
 
-  <%= f.submit "Создать", class: "btn btn-large btn-primary" %>
-<% end %>
+<%= f.label :start_week, "Начальная неделя"%>
+<%= f.number_field :start_week, min: 1, max: 18, required: true,  placeholder: "1" %>
+
+<%= f.label :end_week, "Конечная неделя"%>
+<%= f.number_field :end_week, min: 1, max: 18, required: true, placeholder: "18" %>
+
+  

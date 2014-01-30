@@ -8,16 +8,16 @@
       <%= render 'shared/error_messages', object: f.object%>
 
       <%= f.label :name, "Название группы "%>
-      <%= f.text_field :name, required: true %>
+      <%= f.text_field :name, required: true, placeholder: "Например: СУ-21, ИКТ-2000 и т.д."%>
 
       <%= f.label :email, "Email" %>
-      <%= f.text_field :email, required: true %>
+      <%= f.text_field :email, required: true, placeholder: "Будет использоваться как логин" %>
 
       <%= f.label :password, "Пароль" %>
-      <%= f.password_field :password, required: true %>
+      <%= f.password_field :password, required: true, placeholder: "Суперсекретный пароль" %>
 
-      <%= f.label :password_confirmation, "И снова пароль" %>
-      <%= f.password_field :password_confirmation, required: true %>
+      <%= f.label :password_confirmation, "Подтверждение пароля" %>
+      <%= f.password_field :password_confirmation, required: true, placeholder: "Еще раз суперсекретный пароль " %>
 
       <%= f.submit "Обновить", class: "button" %>
     <% end %>

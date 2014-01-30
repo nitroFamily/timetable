@@ -6,7 +6,8 @@
     </h1>
     <h5 class="center"> 
       <% if @week.nil? %>
-        <%= what_week? %>
+        <% @week = what_week? %>
+        <%= @week %>
       <% else %>
         <%= @week %>
       <% end %>
@@ -16,18 +17,7 @@
 
 <% if @group.lessons.any? %>
 
-  <% 18.times do |i| %>
-    <%= link_to "#{i + 1}", group_path(id: @group.id, week: i + 1) %>
-  <% end %>  
-
-  <div class="row">
-    <div class="span2"><h4 class="center">Понедельник</h4></div>
-    <div class="span2"><h4 class="center">Вторник</h4></div>
-    <div class="span2"><h4 class="center">Среда</h4></div>
-    <div class="span2"><h4 class="center">Четверг</h4></div>
-    <div class="span2"><h4 class="center">Пятница</h4></div>
-    <div class="span2"><h4 class="center">Суббота</h4></div>
-  </div>
+  <%= render "lessons/pagination" %>
 
   <div class="row">
     <%= render "lessons/lesson" %>

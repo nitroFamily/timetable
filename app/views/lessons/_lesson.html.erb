@@ -1,38 +1,45 @@
-<% @lessons.each do |lessons| %>      
-
-  <div class="span2 center">
+<% i = 0 %>
+<% @lessons.each do |lessons| %>
+  <div class="medium-2 columns text-center">
+  <% i += 1 %>
+  <%case i
+       when 1 %><h5>Понедельник</h5>
+    <% when 2 %><h5>Вторник</h5>
+    <% when 3 %><h5>Среда</h5>
+    <% when 4 %><h5>Четверг</h5>
+    <% when 5 %><h5>Пятница</h5>
+    <% when 6 %><h5>Суббота</h5>
+  <% end %>
     <% lessons.each do |lesson| %>
+    <div class="panel lesson">
+      <h4>
+        <%case lesson.number 
+             when 1 %><small>1-Пара</small> <small>9:00 - 10:35</small>
+          <% when 2 %><small>2-Пара</small> <small>10:45 - 12:20</small>
+          <% when 3 %><small>3-Пара</small> <small>13:00 - 14:35</small>
+          <% when 4 %><small>4-Пара</small> <small>14:45 - 16:20</small>
+          <% when 5 %><small>5-Пара</small> <small>16:30 - 18:05</small>
+        <% end %>
+      </h4>
+      <h4><%= lesson.name %></h4>
+      <h5>
+        <%case lesson.form 
+             when 1 %>Лекция
+          <% when 2 %>Практика
+          <% when 3 %>Лабораторная
+        <% end %>
+      </h5>
+      <h5>
+        <small>
+          Аудитория: <%= lesson.classroom %>
+        </small>
+      </h5>
 
-    	<div>
-    		<%case lesson.number 
-    				 when 1 %> 1-Пара: 9:00 - 10:35
-    			<% when 2 %> 2-Пара: 10:45 - 12:20
-    			<% when 3 %> 3-Пара: 13:00 - 14:35
-    			<% when 4 %> 4-Пара: 14:45 - 16:20
-    			<% when 5 %> 5-Пара: 16:30 - 18:05
-    		<% end %>
-    	</div>
-
-      <div><%= lesson.name %></div>
-
-      <div>
-      	<%case lesson.form 
-    				 when 1 %>Лекция
-    			<% when 2 %>Практика
-    			<% when 3 %>Лабораторная
-    		<% end %>
-      </div>
-
-      <div><%= lesson.classroom %></div>
-      <%= lesson.periodicity %>
-
-      <div>
-      	<% if signed_in? && current_group?(@group) %>
-	      	<%= link_to "Ред-ть", edit_lesson_path(lesson) %>
-	      	<%= link_to "Удалить", lesson, method: :delete, data: {confirm: "О нет господи, что ты 	делаешь?"} %>
-	      <% end %>
+    	<% if signed_in? && current_group?(@group) %>
+        <%= link_to "Ред-ть", edit_lesson_path(lesson) %>
+         | <%= link_to "Удалить", lesson, method: :delete, data: {confirm: "О нет господи, что ты  делаешь?"} %>
+      <% end %>
       </div>
     <% end %>  
   </div>
-
-<% end %>  
+<% end %> 
