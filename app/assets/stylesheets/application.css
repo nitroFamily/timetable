@@ -13,3 +13,54 @@
 
  *= require_tree .
  */
+
+
+
+.lesson {
+	padding: 5px;
+
+	h4 {
+		margin: 2px;
+		margin-bottom: 4px;
+	}
+
+	h5 {
+		margin: 2px;
+	}
+
+	small {
+		@media only screen and (max-width: 40em) {
+			position: relative;
+			top: -5px;
+		}
+		display: inline-block;
+	}
+}
+
+.logo {
+	width: 250px;
+	margin: 0 auto;
+	img {
+		margin-right: 2px;
+		position: relative;
+		top: 5px;
+		float: left;
+		width: 50px;
+	}
+	@media only screen and (max-width: 40em) { 
+		width: 195px;
+			img {
+			margin-right: 2px;
+			position: relative;
+			top: 5px;
+			float: left;
+			width: 35px;
+		}
+	}
+}
+
+@media only screen and (max-width: 40em) {
+	.pagination-centered {
+		height: 95px;
+	}
+}
