@@ -12,6 +12,10 @@
 	}
 
 	small {
+		@media only screen and (max-width: 40em) {
+			position: relative;
+			top: -5px;
+		}
 		display: inline-block;
 	}
 }
@@ -40,6 +44,6 @@
 
 @media only screen and (max-width: 40em) {
 	.pagination-centered {
-		height: 70px;
+		height: 95px;
 	}
 }
