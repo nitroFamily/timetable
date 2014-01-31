@@ -24,7 +24,11 @@ class GroupsController < ApplicationController
 
   def show
   	@group = Group.find(params[:id])
-    @week = params[:week]
+    if params[:week].to_i.integer? && params[:week].to_i >= 1 && params[:week].to_i <=18 
+      @week = params[:week]
+    else 
+      @week = what_week?
+    end
     @lessons = get_lessons(@week)
   end
 
