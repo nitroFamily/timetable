@@ -1,5 +1,58 @@
 <% provide(:title, 'Помощь') %>
 
-<div class="row text-center">
-	<h1>Как создать расписание?</h1>
+<div class="row">
+	<div class="small-12 columns text-center">
+		<h1>Как создать расписание?</h1>
+	</div>
+	<div class="small-12 columns">
+		<div class="flex-video">
+			<iframe width="854" height="510" src="//www.youtube.com/embed/7SnIZ4FaNCM" frameborder="0" allowfullscreen></iframe>
+		</div>
+	</div>
+	<div class="small-12 columns">
+	<h2>Примеры</h2>
+
+	<dl class="accordion" data-accordion>
+		<dd>
+	    <a href="#panel1">Пример 1</a>
+	    <div id="panel1" class="content active">
+	      <div class="row">
+	      	<div class="small-10 small-centered columns text-center">
+	      		<%= image_tag "example.png" %>
+	      	</div>
+	      </div>
+	    </div>
+	  </dd>
+	  <dd>
+	    <a href="#panel2">Пример 2, Пара только на одной неделе (пример: 2н)</a>
+	    <div id="panel2" class="content">
+	      <div class="row">
+	      	<div class="small-12 medium-6 columns text-center">
+	      		<h4>Пример</h4>
+	      		<%= image_tag "example-1.png" %>
+	      	</div>
+	      	<div class="small-12 medium-6 columns text-center">
+	      		<h4>Заполнение</h4>
+	      		<%= image_tag "form-1.png" %>
+	      	</div>
+	      </div>
+	    </div>
+	  </dd>
+	  <dd>
+	    <a href="#panel3">Пример 3, Пары на нескольких неделях (пример: 8н, 12н, 16н)</a>
+	    <div id="panel3" class="content">
+		    <div class="row">
+		      <div class="small-12 medium-6 columns text-center">
+		      	<h4>Пример</h4>
+	      		<%= image_tag "example-2.png" %>
+	      	</div>
+	      	<div class="small-12 medium-6 columns text-center">
+	      		<h4>Заполнение</h4>
+	      		<p>Лучше всего создать отдельно три пары на каждую неделю, как в примере 2</p>
+	      	</div>
+	      </div>
+	    </div>
+	  </dd>
+	</dl>
+	</div>
 </div>
