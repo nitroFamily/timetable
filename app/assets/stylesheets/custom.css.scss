@@ -1,3 +1,4 @@
+@import "foundation/components/panels";
 
 .lesson {
 	padding: 5px;
@@ -45,5 +46,15 @@
 @media only screen and (max-width: 40em) {
 	.pagination-centered {
 		height: 95px;
+	}
+}
+
+.custom-panel {
+  @include panel();
+  border: none;
+  background-color: #008cba;
+  text-align: center;
+	h5 {
+		color: #fff;
 	}
 }

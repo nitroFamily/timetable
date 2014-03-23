@@ -3,12 +3,12 @@
   <div class="medium-2 columns text-center">
   <% i += 1 %>
   <%case i
-       when 1 %><h5>Понедельник</h5>
-    <% when 2 %><h5>Вторник</h5>
-    <% when 3 %><h5>Среда</h5>
-    <% when 4 %><h5>Четверг</h5>
-    <% when 5 %><h5>Пятница</h5>
-    <% when 6 %><h5>Суббота</h5>
+       when 1 %><div class="custom-panel"><h5>Понедельник</h5></div>
+    <% when 2 %><div class="custom-panel"><h5>Вторник</h5></div>
+    <% when 3 %><div class="custom-panel"><h5>Среда</h5></div>
+    <% when 4 %><div class="custom-panel"><h5>Четверг</h5></div>
+    <% when 5 %><div class="custom-panel"><h5>Пятница</h5></div>
+    <% when 6 %><div class="custom-panel"><h5>Суббота</h5></div>
   <% end %>
     <% lessons.each do |lesson| %>
     <div class="panel lesson">

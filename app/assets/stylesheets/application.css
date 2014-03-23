@@ -64,3 +64,9 @@
 		height: 95px;
 	}
 }
+
+
+.custom-panel {
+	background-color: #008cba;
+	border-color: #007095;
+}
